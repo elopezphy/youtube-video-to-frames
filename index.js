@@ -71,9 +71,10 @@ const convertVideoToFrames = () => {
   let options = getOptions()
   let ffmpegVideoFrameProcess = spawn('ffmpeg', [
    '-i', `./${options.videoName}.mp4`,
-   '-f', 'image2',
-   '-bt', '20M',
-   '-vf', `fps=${options.fps},select=${options.select},showinfo`,
+  //  '-f', 'image2',
+  //  '-bt', '20M',
+   '-vf', `select=${options.select},showinfo`,
+   '-vsync', 'vfr',
    `./${options.imgFileName}%03d.jpg`
   ])
 
