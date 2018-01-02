@@ -73,7 +73,7 @@ const convertVideoToFrames = () => {
    '-i', `./${options.videoName}.mp4`,
    '-f', 'image2',
    '-bt', '20M',
-   '-vf', `fps=${options.fps}`,
+   '-vf', `fps=${options.fps},select=${options.select},showinfo`,
    `./${options.imgFileName}%03d.jpg`
   ])
 
